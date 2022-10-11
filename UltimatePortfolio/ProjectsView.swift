@@ -30,7 +30,7 @@ struct ProjectsView: View {
                 ForEach(projects.wrappedValue) { project in //.wrappedValue ensures we're accessing what's in the fetch request rather than the fetch request itself
                     Section(header: Text(project.projectTitle)) {
                         ForEach(project.projectItems) { item in
-                            Text(item.itemTitle)
+                            ItemRowView(item: item)
                         }
                     }
                 }
