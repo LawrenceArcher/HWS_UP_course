@@ -21,6 +21,11 @@ struct UltimatePortfolioApp: App {
             ContentView()
                 .environment(\.managedObjectContext, dataController.container.viewContext) //tells SwiftUI what context it works in and allows SwiftUI to read Core Data values
                 .environmentObject(dataController) // This allows our own code to read those Core Data values
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification), perform: save) //save when the user goes to home screenr
         }
+    }
+    
+    func save(_ note: Notification) {
+        dataController.save()
     }
 }

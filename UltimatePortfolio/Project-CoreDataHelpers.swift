@@ -8,6 +8,8 @@
 import Foundation
 
 extension Project {
+    static let colours = ["Pink", "Purple", "Red", "Orange", "Gold", "Green", "Teal", "Light Blue", "Dark Blue", "Midnight", "Dark Grey", "Grey"]
+    
     var projectTitle: String {
         title ?? "New Project"
     }
@@ -58,7 +60,7 @@ extension Project {
         return Double(completedItems.count) / Double(originalItems.count)
     }
     
-    static private var example: Project {
+    static var example: Project {
         let controller = DataController(inMemory: true)
         let viewContext = controller.container.viewContext
         
